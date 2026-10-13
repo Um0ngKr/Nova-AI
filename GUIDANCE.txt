@@ -1,0 +1,311 @@
+NOVA AI — SETUP AND CONFIGURATION GUIDE
+======================================
+
+Welcome to Nova AI!
+
+Nova AI is a Python-based Windows desktop voice assistant. Follow this guide to configure API keys, application paths, email settings, and run the assistant on your computer.
+
+--------------------------------------------------
+1. REQUIREMENTS
+--------------------------------------------------
+
+Install the following:
+
+- Python 3.10 or newer
+- Visual Studio Code (recommended)
+- A working microphone and speakers
+- Internet connection
+- API credentials for optional AI, weather, and email features
+
+Python download:
+https://www.python.org/downloads/
+
+During Python installation, enable "Add Python to PATH" if that option is available.
+
+--------------------------------------------------
+2. CREATE YOUR LOCAL .env FILE
+--------------------------------------------------
+
+The .env file stores configuration values and API credentials.
+
+Step 1: Open the project folder in VS Code.
+
+Step 2: If .env.example exists, open the VS Code terminal and run:
+
+    Copy-Item .env.example .env
+
+If you already have a .env file, do not overwrite it.
+
+Step 3: Open .env and add your own values.
+
+Example:
+
+    GROQ_API_KEY=your_groq_api_key
+    WEATHER_API_KEY=your_weather_api_key
+    DEFAULT_CITY=Kolkata
+
+    EMAIL_ADDRESS=your_email@example.com
+    EMAIL_PASSWORD=your_email_app_password
+    SMTP_SERVER=smtp.gmail.com
+    SMTP_PORT=587
+
+Replace example values with your own credentials.
+
+IMPORTANT:
+- Never upload your real .env file to GitHub.
+- Never share API keys or email passwords publicly.
+- Keep .env excluded using .gitignore.
+- Do not put real credentials in .env.example.
+
+--------------------------------------------------
+3. CONFIGURE GROQ AI
+--------------------------------------------------
+
+Groq provides AI-powered answers to general questions.
+
+Step 1: Visit:
+https://console.groq.com/
+
+Step 2: Sign in and create an API key, following the provider's instructions.
+
+Step 3: Open your local .env file.
+
+Step 4: Add your key:
+
+    GROQ_API_KEY=your_actual_api_key
+
+Step 5: Save the file and restart Nova AI.
+
+Run:
+
+    python main.py
+
+If AI responses do not work, check the API key, internet connection, account access, and configured model in groq_ai.py.
+
+Never publish your actual API key.
+
+--------------------------------------------------
+4. CONFIGURE WEATHER
+--------------------------------------------------
+
+Nova AI can retrieve weather information through OpenWeatherMap.
+
+Website:
+https://openweathermap.org/api
+
+Step 1: Create an account and obtain an API key.
+
+Step 2: Add these values to .env:
+
+    WEATHER_API_KEY=your_actual_weather_api_key
+    DEFAULT_CITY=Kolkata
+
+Step 3: Save the file.
+
+Example voice commands:
+
+- Weather in Patna
+- Kolkata ka mausam batao
+
+Weather availability depends on your API configuration and service access.
+
+--------------------------------------------------
+5. SET APPLICATION PATHS IN commands.json
+--------------------------------------------------
+
+Use commands.json to configure custom application and website commands.
+
+For example, an application command may look like this:
+
+    {
+      "open my editor": {
+        "type": "open_app",
+        "path": "C:\\Path\\To\\Your\\Editor.exe"
+      }
+    }
+
+Replace the example path with the actual path of your application.
+
+HOW TO FIND AN APPLICATION PATH:
+
+1. Find the application's shortcut in Windows.
+2. Right-click the shortcut and open Properties.
+3. Check the Target field, if available.
+4. Copy the executable path.
+5. Open commands.json in VS Code.
+6. Replace the example path with your actual path.
+7. Save the file.
+
+JSON PATH RULES:
+
+Windows paths use double backslashes in JSON.
+
+Example:
+
+    "path": "C:\\Program Files\\Example\\app.exe"
+
+Do not use an unescaped Windows path such as:
+
+    "path": "C:\Program Files\Example\app.exe"
+
+Website commands can use URLs:
+
+    {
+      "open youtube": {
+        "type": "open_url",
+        "url": "https://www.youtube.com"
+      }
+    }
+
+Follow the existing structure in commands.json. The supported command names and action types must match what the current project code expects.
+
+Only configure trusted websites and executable files.
+
+--------------------------------------------------
+6. CONFIGURE EMAIL
+--------------------------------------------------
+
+If you want to use email features, configure your email settings in .env.
+
+Example:
+
+    EMAIL_ADDRESS=your_email@example.com
+    EMAIL_PASSWORD=your_email_app_password
+    SMTP_SERVER=smtp.gmail.com
+    SMTP_PORT=587
+
+For Gmail, use an app password where supported rather than your normal account password.
+
+Test email sending with an account and recipient you control.
+
+Always review the recipient, subject, and message before confirming a send operation.
+
+Never publish your email credentials.
+
+--------------------------------------------------
+7. INSTALL DEPENDENCIES
+--------------------------------------------------
+
+Open PowerShell in the project directory.
+
+Create a virtual environment:
+
+    py -m venv .venv
+
+Activate it:
+
+    .\.venv\Scripts\Activate.ps1
+
+Install dependencies:
+
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+
+If PowerShell blocks activation, use Command Prompt:
+
+    .venv\Scripts\activate.bat
+
+If PyAudio installation fails, check compatibility with your Python version and Windows architecture.
+
+SpeechRecognition installation guidance:
+https://pypi.org/project/SpeechRecognition/
+
+--------------------------------------------------
+8. RUN NOVA AI
+--------------------------------------------------
+
+After configuration and installation, run:
+
+    python main.py
+
+Make sure:
+- Your microphone is connected.
+- Windows microphone permissions are enabled.
+- Your .env values are configured for the features you want.
+- Your internet connection is working for online services.
+
+Try supported commands such as:
+
+- Hello Nova
+- What time is it?
+- Weather in Patna
+- Search for Python tutorials
+- Open calculator
+- Remind me in five minutes to take a break
+- Explain machine learning
+- Send email
+
+Say "exit" or "goodbye" to quit.
+
+Available commands depend on the implemented features and configuration.
+
+--------------------------------------------------
+9. SECURITY AND PRIVACY
+--------------------------------------------------
+
+- Never commit .env to GitHub.
+- Never publish API keys, email passwords, or private information.
+- Keep .env.example limited to placeholders and non-secret defaults.
+- Review commands.json before using commands from other people.
+- Only configure trusted executable paths and URLs.
+- Review emails before confirming they should be sent.
+- Be careful with shutdown, restart, and sleep commands.
+- Online speech recognition and AI services may transmit audio or text to external providers as described in the project README.
+
+If an API key is accidentally published, revoke or rotate it through the provider.
+
+--------------------------------------------------
+10. COMMON PROBLEMS
+--------------------------------------------------
+
+AI responses are not working:
+- Check GROQ_API_KEY in .env.
+- Verify that the configured model is currently available.
+- Check internet connectivity.
+
+Weather is not working:
+- Check WEATHER_API_KEY.
+- Verify your API access and requested city.
+
+Application does not open:
+- Check the executable path in commands.json.
+- Verify the JSON syntax.
+- Make sure the application exists at the specified path.
+
+Microphone is not working:
+- Check Windows microphone permissions.
+- Verify that the correct input device is selected.
+- Check SpeechRecognition and PyAudio installation.
+
+Email is not working:
+- Check SMTP settings.
+- Verify your email address and app password.
+- Check your email provider's authentication requirements.
+
+Reminder does not trigger after closing Nova:
+- Reminders are held in memory and require the assistant to remain running.
+
+--------------------------------------------------
+11. IMPORTANT PROJECT FILES
+--------------------------------------------------
+
+main.py             - Main assistant loop
+voice.py            - Speech recognition and text-to-speech
+intents.py           - Command processing
+groq_ai.py           - AI integration
+weather.py           - Weather functionality
+reminders.py         - Reminder management
+email_service.py     - Email functionality
+system_control.py    - Windows system controls
+custom_commands.py   - Custom command handling
+config.py            - Configuration settings
+commands.json        - Custom commands
+.env.example         - Example configuration
+requirements.txt     - Python dependencies
+README.md            - Project documentation
+
+For further setup information, read README.md.
+
+--------------------------------------------------
+END OF GUIDE
+--------------------------------------------------
