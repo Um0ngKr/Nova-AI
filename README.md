@@ -15,6 +15,7 @@ Nova AI is a Python desktop voice assistant designed for Windows. It supports En
 Open PowerShell in the project directory and run:
 
 ```powershell
+git clone https://github.com/Um0ngKr/Nova-AI.git
 cd Nova-AI
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -22,6 +23,8 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
+
+If you have already downloaded or cloned the project, open PowerShell in the existing project directory and skip the `git clone` and `cd Nova-AI` commands.
 
 If PowerShell blocks environment activation, use Command Prompt:
 
@@ -39,24 +42,24 @@ SpeechRecognition requires microphone access. If `pip install PyAudio` fails, in
 
 ### Groq AI
 
-1. Create an API key in the Groq developer console.
-2. Add it to `.env`:
+1. Create an API key in the [Groq developer console](https://console.groq.com/).
+2. Add it to your local `.env` file:
 
-   ```dotenv
-   GROQ_API_KEY=your_api_key
-   ```
+```dotenv
+GROQ_API_KEY=your_api_key
+```
 
 3. If the configured model becomes unavailable, select a currently supported model in `groq_ai.py`.
 
 ### Weather
 
 1. Create an OpenWeatherMap account and API key.
-2. Configure `.env`:
+2. Configure your local `.env` file:
 
-   ```dotenv
-   WEATHER_API_KEY=your_api_key
-   DEFAULT_CITY=Kolkata
-   ```
+```dotenv
+WEATHER_API_KEY=your_api_key
+DEFAULT_CITY=Kolkata
+```
 
 3. Example commands:
    - "Weather in Patna"
