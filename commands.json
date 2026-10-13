@@ -1,0 +1,73 @@
+{
+  "open youtube": {
+    "type": "open_url",
+    "url": "https://www.youtube.com"
+  },
+  "open github": {
+    "type": "open_url",
+    "url": "https://github.com"
+  },
+
+  "open my github profile": {
+    "type": "open_url",
+    "url": "https://github.com/um0ngkr"
+  },
+
+  "open chrome": {
+    "type": "open_app",
+    "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+  },
+  "open discord": {
+    "type": "open_app",
+    "path": "C:\\ProgramData\\Umang\\Discord\\app-1.0.9258\\Discord.exe"
+  },
+  "open whatsapp": {
+    "type": "open_url",
+    "url": "https://web.whatsapp.com"
+  },
+  "open gmail": {
+    "type": "open_url",
+    "url": "https://mail.google.com"
+  },
+  "open minecraft": {
+    "type": "open_app",
+    "path": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\TLauncher"
+  },
+  "open vs code": {
+    "type": "open_app",
+    "path": "C:\\Users\\Umang\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code\\Visual Studio Code.lnk"
+  },
+  "open steam": {
+    "type": "open_app",
+    "path": "C:\\Program Files (x86)\\Steam\\steam.exe"
+  },
+  "open chatgpt": {
+    "type": "open_url",
+    "url": "https://chatgpt.com"
+  },
+  "open spotify": {
+    "type": "open_url",
+    "url": "https://open.spotify.com"
+  },
+  "open instagram": {
+    "type": "open_url",
+    "url": "https://www.instagram.com"
+  },
+  "open google drive": {
+    "type": "open_url",
+    "url": "https://drive.google.com"
+  },
+  "open calculator": {
+    "type": "open_app",
+    "path": "calc"
+  },
+  "open notepad": {
+    "type": "open_app",
+    "path": "notepad"
+  },
+  "open file explorer": {
+    "type": "open_app",
+    "path": "explorer"
+  }
+}
+
