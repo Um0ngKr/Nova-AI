@@ -1,0 +1,72 @@
+{
+  "open youtube": {
+    "type": "open_url",
+    "url": "https://www.youtube.com"
+  },
+  "open github": {
+    "type": "open_url",
+    "url": "https://github.com"
+  },
+
+  "open my github profile": {
+    "type": "open_url",
+    "url": "https://github.com/um0ngkr"
+  },
+
+  "open chrome": {
+    "type": "open_app",
+    "path": "C:\\Path\\To\\Your\\chrome.exe"
+  },
+  "open discord": {
+    "type": "open_app",
+    "path": "C:\\Path\\To\\Your\\discord.exe"
+  },
+  "open whatsapp": {
+    "type": "open_url",
+    "url": "https://web.whatsapp.com"
+  },
+  "open gmail": {
+    "type": "open_url",
+    "url": "https://mail.google.com"
+  },
+  "open minecraft": {
+    "type": "open_app",
+    "path": "C:\\Path\\To\\Your\\minecraft.exe"
+  },
+  "open vs code": {
+    "type": "open_app",
+    "path": "C:\\Path\\To\\Your\\vs code.exe"
+  },
+  "open steam": {
+    "type": "open_app",
+    "path": "C:\\Path\\To\\Your\\steam.exe"
+  },
+  "open chatgpt": {
+    "type": "open_url",
+    "url": "https://chatgpt.com"
+  },
+  "open spotify": {
+    "type": "open_url",
+    "url": "https://open.spotify.com"
+  },
+  "open instagram": {
+    "type": "open_url",
+    "url": "https://www.instagram.com"
+  },
+  "open google drive": {
+    "type": "open_url",
+    "url": "https://drive.google.com"
+  },
+  "open calculator": {
+    "type": "open_app",
+    "path": "calc"
+  },
+  "open notepad": {
+    "type": "open_app",
+    "path": "notepad"
+  },
+  "open file explorer": {
+    "type": "open_app",
+    "path": "explorer"
+  }
+}
